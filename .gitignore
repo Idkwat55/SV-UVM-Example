@@ -1,0 +1,6 @@
+sim/out/
+sim/waves/
+obj_dir/
+*.vcd
+*.fst
+*.vvp

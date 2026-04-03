@@ -1,0 +1,28 @@
+{
+  "name": "sv-uvm-example",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "codespace",
+      "webPort": "6080"
+    }
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Codespaces Desktop (GTKWave GUI)",
+      "onAutoForward": "openBrowserOnce"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.makefile-tools",
+        "eirikpre.systemverilog"
+      ]
+    }
+  },
+  "postCreateCommand": "verilator --version; iverilog -V | head -n 1; gtkwave --version | head -n 1"
+}
