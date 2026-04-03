@@ -19,7 +19,7 @@ WAVE_FILE := $(WAVE_DIR)/$(TC).vcd
 help:
 	@echo "Usage:"
 	@echo "  make run tc1      # compile + run testcase tc1"
-	@echo "  make view tc1     # open waveform for tc1 in GTKWave GUI"
+	@echo "  make view tc1     # open waveform for tc1 in VS Code (WaveTrace extension)"
 	@echo "  make run-all      # run all testcases"
 	@echo "  make clean        # remove generated files"
 	@echo ""
@@ -45,9 +45,9 @@ view:
 		echo "ERROR: $(WAVE_FILE) does not exist. Run: make run $(TC)"; \
 		exit 1; \
 	fi
-	@echo "[VIEW] Launching GTKWave for $(WAVE_FILE)"
-	@DISPLAY=$${DISPLAY:-:1} gtkwave $(WAVE_FILE) >/tmp/gtkwave_$(TC).log 2>&1 &
-	@echo "[VIEW] If GUI does not appear, open forwarded port 6080 (desktop-lite)."
+	@echo "[VIEW] Opening $(WAVE_FILE) in VS Code"
+	@code -g $(WAVE_FILE) >/dev/null 2>&1 || true
+	@echo "[VIEW] If it did not auto-open, open $(WAVE_FILE) in Explorer (WaveTrace extension)."
 
 run-all:
 	@for t in $(SUPPORTED_TCS); do \

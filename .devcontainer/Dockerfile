@@ -8,6 +8,5 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         verilator \
         iverilog \
-        gtkwave \
         make \
     && rm -rf /var/lib/apt/lists/* /usr/share/doc/* /usr/share/man/*

@@ -2,7 +2,7 @@
 
 This repository demonstrates a progressive verification journey using 4 testcases.
 
-## Primary Flow: Interactive Codespaces + Make + GTKWave
+## Primary Flow: Interactive Codespaces + Make + WaveTrace
 
 Goal: users click the repo, open Codespace, run tests in terminal, and open waveforms interactively.
 
@@ -13,8 +13,7 @@ Goal: users click the repo, open Codespace, run tests in terminal, and open wave
 The devcontainer installs:
 - Verilator
 - Icarus Verilog (used to run class/constraint-heavy testcases)
-- GTKWave
-- desktop-lite GUI support (port 6080)
+- WaveTrace VS Code extension (`wavetrace.wavetrace`) for waveform viewing
 
 ### 2) Run testcases from terminal
 
@@ -25,13 +24,12 @@ make run tc3
 make run tc4
 ```
 
-### 3) Open waveform in GUI
+### 3) Open waveform in VS Code
 
 ```bash
 make view tc1
 ```
-
-If GUI does not appear directly in your browser VS Code window, open forwarded port `6080` (Codespaces Desktop).
+This opens the generated VCD in the editor so the WaveTrace extension can render it.
 
 ### 4) Other useful targets
 
